@@ -28,6 +28,16 @@ values
 (12, 'Kumar', 'SM', 150000),
 (13, 'vhubi', 'IT', 90000);
 
+insert into employee_info
+(Emp_Id,Emp_Name,Department,Salary)
+values
+(14, 'Argun', 'DMD', 10000),
+(15, 'Nisita', 'AID', 20000),
+(16, 'Ovoy', 'AD', 50000),
+(17, 'Anuz', 'AD', 40000),
+(18, 'Amrita', 'Ml', 50000),
+(19, 'Lokes', 'SMD', 60000);
+
 select * from employee_info;
 
 
@@ -53,16 +63,37 @@ select Emp_Name  from employee_info
 where Salary = (select Max(Salary) from employee_info 
 where Salary != (select Max(Salary) from employee_info));
 
+/* Write a SQL Query to display all department name along with no.of Emps Working in that */
 
+select Department, COUNT(*) as Total_Emp 
+from employee_info 
+group by Department;
 
+/* Write a SQL Query to display all the department where no. of employees are less than 2 */
 
+select Department 
+from employee_info 
+group by Department 
+having COUNT(*) < 2;
 
+select Department 
+from employee_info 
+group by Department 
+having COUNT(*) > 3;
 
+/* Write a SQL Query to display all the department where no. of employees and employee name are less than 2 */
 
+select Emp_Name, Department 
+from employee_info 
+where Department 
+in (select Department from employee_info group by Department having COUNT(*) < 2);
 
+select Emp_Name, Department 
+from employee_info 
+where Department 
+in (select Department from employee_info group by Department having COUNT(*) > 3);
 
-
-
+/* Write a query to display highest salary department wish and name of employee who is taking that salary */
 
 
 
