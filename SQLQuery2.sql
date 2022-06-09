@@ -43,9 +43,15 @@ from employee_info
 where salary = ( select Max(salary) from employee_info);
 
 
+/* Write a SQL Query to display Second Highest salary from employee_info Table */
 
+select Max(Salary) from employee_info 
+where Salary != (select Max(Salary) from employee_info);
 
-
+/* Write a SQL Query to display Employe Name who takingSecond Highest salary */
+select Emp_Name  from employee_info
+where Salary = (select Max(Salary) from employee_info 
+where Salary != (select Max(Salary) from employee_info));
 
 
 
