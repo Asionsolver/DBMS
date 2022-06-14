@@ -95,6 +95,7 @@ in (select Department from employee_info group by Department having COUNT(*) > 3
 
 /* Write a query to display highest salary department wish and name of employee who is taking that salary */
 
+select Emp_Name,Department,Salary from employee_info where Salary In (select MAX(Salary) from employee_info group by Department);
 
 
 
