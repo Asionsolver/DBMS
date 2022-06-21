@@ -67,7 +67,7 @@ update Customer set Times = 'GMT-7' where Customer_Name = 'Ronald';
 
 /* Alphabetically show the names of customer where each customer lives in USA. */
 
-select Customer_Name,Customer_Country FROM customer ORDER BY Customer_Country DESC;
+select Customer_Name,Customer_Country from customer order by Customer_Country desc;
 
 
 /* Show the customer name who have greater assets than the average assets and also lives in USA. */
@@ -98,7 +98,7 @@ from Student
 where CGPA between 3.5 and 3.99; 
 
 /* Delete the data of those students where the CGPA below 3.50 using sub query. */
-delete from student where CGPA < 3.5;
+delete from Student where CGPA < 3.5;
   
 
 
