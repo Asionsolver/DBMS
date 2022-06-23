@@ -98,7 +98,46 @@ in (select Department from employee_info group by Department having COUNT(*) > 3
 select Emp_Name,Department,Salary from employee_info where Salary In (select MAX(Salary) from employee_info group by Department);
 
 
+create table employee
+(
+	Emp_Id integer,
+	Emp_Name varchar(20),
+	Addresses varchar(20)
+);
 
+insert into employee
+(Emp_Id,Emp_Name,Addresses)
+values
+(1, 'Ram', 'Pune'),
+(2, 'Sita', 'Delhi'),
+(3, 'Lokes', 'Mumbai'),
+(4, 'Krisno', 'Bangalor'),
+(5, 'Varun', 'Chandigar'),
+(6, 'Robin', 'Chandigar'),
+(7, 'Ammy', 'Pune');
+
+create table Project
+(
+	Emp_Id integer,
+	P_id integer,
+	P_Name varchar(20),
+	Location varchar(20)
+);
+
+insert into Project
+(Emp_Id,P_id,P_Name,Location)
+values
+(1,1, 'IOT', 'Pune'),
+(2,5, 'Big Data', 'Delhi'),
+(3,8 ,'CP', 'Mumbai'),
+(4,3, 'DL', 'Bangalor'),
+(5,7, 'AI', 'Chandigar'),
+(6,9, 'DA', 'Chandigar'),
+(7,2 ,'WD', 'Pune');
+
+/* Find Details Employee Address is either Delhi or Chandigar or Pune */
+
+select * from employee where Addresses in ('Pune','Chandigar','Delhi');
 
 
 

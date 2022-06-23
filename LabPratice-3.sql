@@ -3,7 +3,7 @@ create database labDB;
 use labDB;
 
 
-/* Create a table named “Quotation” and entered the quotation in encrypted form in the table */
+
 
 
 
@@ -13,6 +13,8 @@ create table Quotation
 	Quatation varchar(160),
 	Year integer,
 );
+
+/* Create a table named “Quotation” and entered the quotation in encrypted form in the table */
 
 insert into Quotation
 (Person, Quatation, Year)
