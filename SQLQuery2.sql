@@ -108,6 +108,9 @@ create table employee
 insert into employee
 (Emp_Id,Emp_Name,Addresses)
 values
+(8, 'Atrii', 'Pune'),
+(9, 'Gobind', 'Asam'),
+(10, 'Nitin', 'Hydrabad'),
 (1, 'Ram', 'Pune'),
 (2, 'Sita', 'Delhi'),
 (3, 'Lokes', 'Mumbai'),
@@ -127,6 +130,13 @@ create table Project
 insert into Project
 (Emp_Id,P_id,P_Name,Location)
 values
+(2,3,'CP', 'Mumbai'),
+(4,1, 'IOT', 'Pune'),
+(2,7, 'AI', 'Chandigar'),
+(7,1, 'IOT', 'Pune'),
+(7,1, 'Big Data', 'Delhi'),
+(2,3, 'DL', 'Bangalor'),
+(2,7, 'AI', 'Chandigar'),
 (1,1, 'IOT', 'Pune'),
 (2,5, 'Big Data', 'Delhi'),
 (3,8 ,'CP', 'Mumbai'),
@@ -135,9 +145,37 @@ values
 (6,9, 'DA', 'Chandigar'),
 (7,2 ,'WD', 'Pune');
 
+
+
 /* Find Details Employee Address is either Delhi or Chandigar or Pune */
 
 select * from employee where Addresses in ('Pune','Chandigar','Delhi');
+
+
+/* Find Details Employee Address is not Delhi or Chandigar or Pune */
+
+select * from employee where Addresses not in ('Pune','Chandigar','Delhi');
+
+/* Find the of employee who are working on a project */
+
+select Emp_Name from Employee where Emp_Id in (select Distinct(Emp_Id) from Project);
+
+/* Find the of employee who are not working on a project */
+
+select Emp_Name from Employee where Emp_Id not in (select Distinct(Emp_Id) from Project);
+
+/* Find the datails of emp who is working at least one project */
+
+select * from employee  where Emp_Id exists (select Emp_Id from Project where employee.Emp_Id = Project.Emp_Id);
+
+
+
+
+
+
+
+
+
 
 
 
